@@ -56,8 +56,7 @@ def is_between_100_and_999(user_input_number):
     # '''
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
-    if not str(user_input_number).isdigit():
-        return False
+    
     digit = int(user_input_number)
     return True if 100 <= digit and digit < 1000 else False
 
@@ -113,12 +112,7 @@ def is_validated_number(user_input_number):
     # '''
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
-    if is_digit(user_input_number):
-        if is_between_100_and_999(user_input_number):
-            if not is_duplicated_number(user_input_number):
-                return True
-
-    return False
+    return True if is_digit(user_input_number) and is_between_100_and_999(user_input_number) and not is_duplicated_number(user_input_number) else False
         
 
 
@@ -145,11 +139,11 @@ def get_not_duplicated_three_digit_number():
     # get_random_number() 함수를 사용하여 random number 생성
 
     random_number = get_random_number()
-    while(not is_validated_number(random_number)):
+    while not is_validated_number(random_number):
         random_number = get_random_number()
 
     # ==================================
-    return int(random_number)
+    return random_number
 
 
 def get_strikes_or_ball(user_input_number, random_number):
@@ -285,23 +279,6 @@ def main():
                 
         else:
             print("Wrong input, input again")
-        '''
-            A. 잘못된 입력
-            A-1. 문자가 포함된 입력
-            A-2. 세 자리 정수에 중복되는 숫자가 있을 경우
-             * output: "Wrong input"출력
-
-            B. 3 Strikes
-            B-1. 사용자에게 게임 할 의향 있는지 물어보기
-            B-2. is_Yes or No 함수로 의향 확인
-            B-3  if (is_Yes or is_No)가 False이면
-             * output: "Wrong input"출력
-            B-result. 다시 게임 시작
-            
-            C. 게임 중 0 입력
-            
-        '''
-    
 
     # ==================================
     print("Thank you for using this program")
