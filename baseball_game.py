@@ -85,9 +85,8 @@ def is_duplicated_number(three_digit):
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
 
     for num in str(three_digit):
-        if str(three_digit).count(num)>=2:
+        if str(three_digit).count(num) > 1:
             return True
-            
     return False
 
 
@@ -113,8 +112,16 @@ def is_validated_number(user_input_number):
     # '''
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
+    print(is_digit(user_input_number))
+    print(is_between_100_and_999(user_input_number))
+    print(is_duplicated_number(user_input_number))
+    
+    if is_digit(user_input_number):
+        if is_between_100_and_999(user_input_number):
+            if not is_duplicated_number(user_input_number):
+                return True
 
-    return True if is_digit(user_input_number) and is_between_100_and_999(user_input_number) and is_duplicated_number(user_input_number) else False
+    return False
         
 
 
