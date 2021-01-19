@@ -84,16 +84,11 @@ def is_duplicated_number(three_digit):
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
 
-    preNum = 'A'
-    result = False
     for num in str(three_digit):
-        if num == preNum:
-            result = True
-            break
-        else:
-            preNum = num
+        if str(three_digit).count(num)>2:
+            return False
             
-    return result
+    return True
 
 
 def is_validated_number(user_input_number):
@@ -119,7 +114,7 @@ def is_validated_number(user_input_number):
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
 
-    return True if is_digit(user_input_number) and is_between_100_and_999(user_input_number) and not is_duplicated_number(user_input_number) else False
+    return True if is_digit(user_input_number) and is_between_100_and_999(user_input_number) and is_duplicated_number(user_input_number) else False
         
 
 
@@ -146,7 +141,7 @@ def get_not_duplicated_three_digit_number():
     # get_random_number() 함수를 사용하여 random number 생성
 
     random_number = get_random_number()
-    while( is_validated_number(random_number)):
+    while(not is_validated_number(random_number)):
         random_number = get_random_number()
 
     # ==================================
@@ -184,14 +179,14 @@ def get_strikes_or_ball(user_input_number, random_number):
     # ==================================
     ball = 0 
     strikes = 0
-    for a,b in zip(user_input_number,random_number):
-        if a == b:
-            strikes += 1
-    for a,b in zip(sorted(user_input_number),sorted(random_number)):
-        if a == b:
-            ball += 1
+    for idx, user_num in enumerate(user_input_number):
+        if user_num in random_number:
+            if user_num == random_number[idx]:
+                strikes += 1
+            else:
+                ball += 1    
     
-    return[ strikes, ball - strikes]
+    return[ strikes, ball ]
 
 
 def is_yes(one_more_input):
@@ -309,5 +304,4 @@ def main():
     print("End of the Game")
 
 if __name__ == "__main__":
-    for i in range(1, 99):
-            print(is_duplicated_number('300'))
+    main()

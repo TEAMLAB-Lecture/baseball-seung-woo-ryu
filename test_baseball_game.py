@@ -113,8 +113,7 @@ class TestBaseballGame(unittest.TestCase):
                     bg.main()
                     console = fakeOutput.getvalue().strip().split("\n")
                     random_number = console[1][-3:].strip()
-                    
-                    self.assertTrue(
+                    self.assertFalse(
                         self.is_duplicated_number(random_number))
 
         with patch('builtins.input', side_effect=["woe", "ewe", "121", "545", "0"]):
@@ -233,5 +232,5 @@ class TestBaseballGame(unittest.TestCase):
         result = [strikes, ball]
         return result
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
