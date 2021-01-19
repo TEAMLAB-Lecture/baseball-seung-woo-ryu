@@ -249,11 +249,13 @@ def is_no(one_more_input):
 def main():
     print("Play Baseball")
     user_input = 999
+    playing = True
     random_number = str(get_not_duplicated_three_digit_number())
+    
     print("Random Number is : ", random_number)
     # ===Modify codes below=============
     # 위의 코드를 포함하여 자유로운 수정이 가능함
-    playing = True
+    
     while(playing):
         user_input = str(input("Input guess number : "))
         if user_input == '0':
@@ -264,7 +266,7 @@ def main():
             
             if result[0] == 3:
                 while True:
-                    re = input("You win, one more(Y/N)?")
+                    re = str(input("You win, one more(Y/N)?"))
                     if is_yes(re):
                         random_number = str(get_not_duplicated_three_digit_number())
                         print("Random Number is : ", random_number)
