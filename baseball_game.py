@@ -85,10 +85,10 @@ def is_duplicated_number(three_digit):
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
 
     for num in str(three_digit):
-        if str(three_digit).count(num)>2:
-            return False
+        if str(three_digit).count(num)>=2:
+            return True
             
-    return True
+    return False
 
 
 def is_validated_number(user_input_number):
