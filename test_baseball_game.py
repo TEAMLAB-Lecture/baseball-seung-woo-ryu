@@ -113,7 +113,8 @@ class TestBaseballGame(unittest.TestCase):
                     bg.main()
                     console = fakeOutput.getvalue().strip().split("\n")
                     random_number = console[1][-3:].strip()
-                    self.assertFalse(
+                    
+                    self.assertTrue(
                         self.is_duplicated_number(random_number))
 
         with patch('builtins.input', side_effect=["woe", "ewe", "121", "545", "0"]):

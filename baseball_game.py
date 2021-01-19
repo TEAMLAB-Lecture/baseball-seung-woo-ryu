@@ -309,4 +309,5 @@ def main():
     print("End of the Game")
 
 if __name__ == "__main__":
-    main()
+    for i in range(1, 99):
+            print(is_duplicated_number('300'))
