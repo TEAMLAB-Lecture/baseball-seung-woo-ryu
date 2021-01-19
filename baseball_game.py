@@ -6,7 +6,7 @@ import re
 def get_random_number():
     # Helper Function - 지우지 말 것
     # 100부터 999까지 수를 램덤하게 반환함
-    return random.randrange(100, 1000)
+    return str(random.randrange(100, 1000))
 
 
 def is_digit(user_input_number):
@@ -113,10 +113,6 @@ def is_validated_number(user_input_number):
     # '''
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
-    print(is_digit(user_input_number))
-    print(is_between_100_and_999(user_input_number))
-    print(is_duplicated_number(user_input_number))
-    
     if is_digit(user_input_number):
         if is_between_100_and_999(user_input_number):
             if not is_duplicated_number(user_input_number):
@@ -153,7 +149,7 @@ def get_not_duplicated_three_digit_number():
         random_number = get_random_number()
 
     # ==================================
-    return random_number
+    return int(random_number)
 
 
 def get_strikes_or_ball(user_input_number, random_number):
@@ -265,7 +261,7 @@ def main():
     # 위의 코드를 포함하여 자유로운 수정이 가능함
     playing = True
     while(playing):
-        user_input = input("Input guess number : ")
+        user_input = str(input("Input guess number : "))
         if user_input == '0':
             break
         
